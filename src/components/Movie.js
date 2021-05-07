@@ -11,8 +11,7 @@ export const Movie = ({ movie }) => {
 
   return (
     <Card className="movie">
-      <Card.Img variant="top" width="200"
-          alt={`The movie titled: ${movie.Title}`}
+      <Card.Img className="movie-img" variant="top" width="200"
           src={poster} />
         <Card.Body>
           <Card.Title>

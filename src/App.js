@@ -8,7 +8,6 @@ const OMDB_URL = `https://www.omdbapi.com/?s=man&apikey=${process.env.REACT_APP_
 
 const App = () => {
   const [state, dispatch] = useReducer(moviesReducer, initialState);
-
     useEffect(() => {
         axios.get(OMDB_URL)
             .then(jsonResponse => {

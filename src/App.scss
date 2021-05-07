@@ -1,5 +1,20 @@
 @import "variables";
 
+@font-face {
+  font-family: 'SansBlack';
+  src: url('/assets/sans-black.woff');
+}
+
+@font-face {
+  font-family: 'MonoRegular';
+  src: url('/assets/mono-regular.woff');
+}
+
+@font-face {
+  font-family: 'MonoBlack';
+  src: url('/assets/mono-black.woff');
+}
+
 .header {
   text-align: center;
 }
@@ -38,26 +53,42 @@ span {
 
 .App-intro {
   font-size: large;
+  padding: 10px;
+  margin: 10px;
 }
 
 /* new css for movie component */
 
 * {
   box-sizing: border-box;
+  font-family: MonoRegular;
 }
 
 .movies {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: center;
+}
+
+.movie-img {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  margin-top: 5px;
 }
 
 .App-header h2 {
   margin: 0;
 }
 
-.add-movies {
-  text-align: center;
+.add-movie {
+  padding: 5px;
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+  width: 60px;
+  cursor: pointer;
+  border-radius: 0px;
 }
 
 .add-movies button {
@@ -66,10 +97,19 @@ span {
   margin: 0 10px 30px 10px;
 }
 
+Button[type="submit"]:hover {
+  background-color: #004C3F;
+  color: #FBF7ED;
+  border: 1px solid black;
+}
+
 .movie {
   padding: 5px 25px 10px 25px;
+  margin: 10px 20px 10px 20px;
   max-width: 25%;
+  border: 1px solid black;
   color: #002E25;
+  border-radius: 0px
 }
 
 .errorMessage {
@@ -100,8 +140,8 @@ input[type="submit"] {
 
 
 input[type="submit"]:hover {
-  background-color: #282c34;
-  color: antiquewhite;
+  background-color: #004C3F;
+  color: #FBF7ED;
 }
 
 
