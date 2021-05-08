@@ -1,0 +1,199 @@
+@import "variables";
+
+@font-face {
+  font-family: 'MonoRegular';
+  src: url('/assets/mono-regular.woff');
+}
+
+* {
+  font-family: MonoRegular;
+}
+
+#flex-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding-bottom: 50px;
+}
+
+#left-col {
+  flex: 9;
+}
+
+#right-col {
+  flex: 3;
+  padding-right: 20px;
+
+}
+
+.app-header {
+  background-color: $primary;
+}
+
+.nom-complete {
+  background-color: $success;
+
+}
+
+.banner {
+  cursor: pointer;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: calc(10px + 2vmin);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-text {
+  margin-bottom: 0px;
+}
+
+.panel {
+  padding: 10px;
+  margin: 10px;
+}
+
+.movie-img {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  margin-top: 5px;
+}
+
+.movie {
+  padding: 5px 25px 10px 25px;
+  margin: 10px 20px 10px 20px;
+  max-width: 25%;
+  border: $black-border;
+  border-radius: 0px
+}
+
+.card {
+  min-width: 200px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 120px;
+  font-size: 1rem;
+  border: $black-border;
+  border-radius: 0px;
+  transition: background-color 0.25s;
+}
+
+.nominate-btn {
+  background-color: $body-bg;
+  color: black;
+  transition: background-color 0.25s;
+}
+
+.nominate-btn:hover {
+  align-items: center;
+  background-color: $btn-primary-hover;
+  color: $body-bg;
+  cursor: pointer;
+}
+
+.nominate-btn:active {
+  background-color: $primary;
+}
+
+.nominate-btn-disabled {
+  background-color: $btn-light;
+  color: black;
+}
+
+.nominate-btn, .nominate-btn-disabled, .nominate-btn:active {
+  margin: 5px auto 0;
+}
+
+.remove-nominee-btn {
+  width: 100px;
+  background-color: white;
+  transition: background-color 0.25s;
+}
+
+.remove-nominee-btn:hover {
+  background-color: $danger;
+  cursor: pointer;
+}
+
+.app-intro {
+  font-size: large;
+  padding: 10px;
+  margin: 10px;
+}
+
+.nom-heading {
+  font-size: large;
+  justify-content: flex-start;
+}
+
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.errorMessage {
+  margin: auto;
+  font-weight: bold;
+  color: rgb(161, 15, 15);
+}
+
+.search-container {
+  text-align: center;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px;
+  padding-bottom: 10px;
+}
+
+.search-text {
+  padding-left: 10px;
+}
+
+input[type="submit"] {
+  padding: 5px;
+  background-color: white;
+  color: black;
+  border: $black-border;
+  width: 80px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: $primary;
+  color: $body-bg;
+}
+
+.search > input[type="text"]{
+  width: 40%;
+  min-width: 170px;
+}
+
+@include media-breakpoint-up(sm) {
+    #flex-container {
+    display: flex;
+    flex-direction: row;
+    row-gap: 20px;
+  }
+
+    .movie {
+      display: block;
+      text-align: center;
+      min-width: 200px;
+    }
+
+}
+
