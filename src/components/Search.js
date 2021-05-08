@@ -1,31 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from 'react';
+import AppContext from '../context/appContext';
+import { Container } from "react-bootstrap";
 
-export const Search = ({ search }) => {
-  const [searchValue, setSearchValue] = useState("");
+export const Search = () => {
+  const appContext = useContext(AppContext);
+  const { getResults } = appContext;
 
-  const handleSearchInputChanges = e => {
-    setSearchValue(e.target.value);
-  };
+  const [searchText, setSearchText] = useState('');
 
   const resetInputField = () => {
-    setSearchValue("");
+    setSearchText("");
   };
 
-  const callSearchFunction = e => {
+  const onChange = (e) => {
+    setSearchText(e.target.value);
+  };
+
+  const onSubmit = (e) => {
     e.preventDefault();
-    search(searchValue);
+    getResults(searchText);
     resetInputField();
   };
 
   return (
-    <form className="search">
-      <input
-        value={searchValue}
-        onChange={handleSearchInputChanges}
-        type="text"
-      />
-
-      <input onClick={callSearchFunction} type="submit" value="SEARCH" />
-    </form>
+  <Container className="search-container">
+       <p className="app-intro">Nominate your top 5 favorite movies:</p>
+      <form className="search" onSubmit={onSubmit}>
+        <input
+          value={searchText}
+          onChange={onChange}
+          type="text"
+          placeholder='movie title...'
+          className="search-text"
+        />
+        <input onClick={() => getResults(searchText)} type="submit" value="Search" />
+      </form>
+</Container>
   );
 };

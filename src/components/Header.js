@@ -1,9 +1,9 @@
 import React from "react";
 
-export const Header = (props) => {
+export const Header = () => {
   return (
-    <header className="App-header">
-      <h2>{props.text}</h2>
+    <header className="app-header banner">
+      <h1>The Shoppies</h1>
     </header>
   );
 };

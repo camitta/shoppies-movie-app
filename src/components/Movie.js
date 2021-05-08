@@ -1,45 +1,50 @@
-import React from "react";
+import React, {useContext} from "react";
+import AppContext from '../context/appContext';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 
-const DEFAULT_PLACEHOLDER_IMAGE =
+export const Movie = (props) => {
+
+  const appContext = useContext(AppContext);
+  const { nominees } = appContext;
+  const { movie, addNominee } = props;
+
+  let nominated = false;
+  //if movie is already nominated, display with disabled button
+  for (let i = 0; i < nominees.length; i++) {
+    if (nominees[i].imdbID === movie.imdbID) {
+      nominated = true;
+    }
+  }
+
+  const DEFAULT_PLACEHOLDER_IMAGE =
   "https://images-na.ssl-images-amazon.com/images/I/91OOEMXqaAL._SL1500_.jpg";
 
-export const Movie = ({ movie }) => {
   const poster =
     movie.Poster === "N/A" ? DEFAULT_PLACEHOLDER_IMAGE : movie.Poster;
 
   return (
     <Card className="movie">
-      <Card.Img className="movie-img" variant="top" width="200"
-          src={poster} />
-        <Card.Body>
+      <Card.Img className="movie-img" variant="top" src={poster} />
+        <Card.Body className="card-content">
           <Card.Title>
             {movie.Title}</Card.Title>
           <Card.Text>
             {movie.Year}
           </Card.Text>
-          <Button variant="primary" type="submit" className="add-movie"
-          onClick={() => this.handleClick(movie.Title, movie.Year)}>Add</Button>
+          {nominated ? (
+               <button className='btn nominate-btn-disabled'>
+               <div className="nom-btn-txt">Nominated</div>
+               </button>
+        ) : (
+          <button
+            className='btn nominate-btn'
+            onClick={() => addNominee(movie)}
+          ><div className='nom-btn-txt'>
+            Nominate
+            </div>
+          </button>
+          )}
         </Card.Body>
       </Card>
   );
 };
-// export const Movie = ({ movie }) => {
-//   const poster =
-//     movie.Poster === "N/A" ? DEFAULT_PLACEHOLDER_IMAGE : movie.Poster;
-//   return (
-//     <div className="movie">
-//       <h2>{movie.Title}</h2>
-//       <div>
-//         <img
-//           width="200"
-//           alt={`The movie titled: ${movie.Title}`}
-//           src={poster}
-//         />
-//       </div>
-//       <p>{movie.Year}</p>
-//     </div>
-//   );
-// };
-
