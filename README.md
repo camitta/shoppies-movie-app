@@ -20,6 +20,11 @@ An app to help manage movie nominations for the Shoppies Awards. Submission for 
 * Notify user when they're finished
 * Simple and intuitive UI
 
+### Setup
+
+1.  `npm install`
+2.  `npm start`
+
 ### Technical Requirements
 
 * The ability to search the OMDB API and return a list of movies that show at least the title, release year and a button to nominate them.
