@@ -9,7 +9,7 @@ export const Movie = (props) => {
   const { movie, addNominee } = props;
 
   let nominated = false;
-  //if movie is already nominated, display with disabled button
+  //if movie is already nominated, display disabled button
   for (let i = 0; i < nominees.length; i++) {
     if (nominees[i].imdbID === movie.imdbID) {
       nominated = true;
@@ -26,9 +26,9 @@ export const Movie = (props) => {
     <Card className="movie">
       <Card.Img className="movie-img" variant="top" src={poster} />
         <Card.Body className="card-content">
-          <Card.Title>
+          <Card.Title className="card-txt">
             {movie.Title}</Card.Title>
-          <Card.Text>
+          <Card.Text className="card-txt movie-year">
             {movie.Year}
           </Card.Text>
           {nominated ? (
