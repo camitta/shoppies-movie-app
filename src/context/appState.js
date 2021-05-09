@@ -28,11 +28,15 @@ export const AppState = (props) => {
       const res = await axios.get(
         `https://www.omdbapi.com/?s=${searchText}&apikey=${process.env.REACT_APP_OMDB_KEY}`
       );
-      let results = res.data.Search;
+      let allGenreResults = res.data.Search;
+
+      let results = []
       //filter to show only movies
       //only show max of 6
-      let movies = results.filter(result => result.Type === 'movie').slice(0, 6);
-      dispatch({ type: GET_RESULTS, payload: movies });
+      if (allGenreResults) {
+        results = allGenreResults.filter(result => result.Type === 'movie').slice(0, 6);
+      }
+      dispatch({ type: GET_RESULTS, payload: results });
     } catch (error) {
       dispatch({ type: SEARCH_ERROR });
     }

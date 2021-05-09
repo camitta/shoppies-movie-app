@@ -14,7 +14,7 @@ export const Banner = () => {
     <React.Fragment>
       {nominationsComplete && (
         <div className='nom-complete banner'>
-          <p className='banner-text'>Now, time for some Netflix and chill!</p>
+          <p className='banner-text'>Thanks!</p>
           <Confetti width={windowSize.width} height={windowSize.height} />
         </div>
       )}
